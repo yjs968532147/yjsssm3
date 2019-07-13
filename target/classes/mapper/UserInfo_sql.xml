@@ -4,45 +4,44 @@
 <!-- 设置为UserDao接口方法提供sql语句配置 -->
 <mapper namespace="com.yjs.dao.UserInfoDao">
     <insert id="insertUser" parameterType="UserInfo">
-        INSERT INTO USERINFO(NAME,AGE,LOGINNAME,PASSWORD)VALUES(#{name},#{age},#{loginName},#{password})
+        INSERT INTO USER_MANAGEMENT(USER_NAME,USER_PASSWORD,USER_NETNAME,USER_SEX,USER_BIRTHDAY)VALUES(#{name},#{password},#{netname},#{sex},#{birthday})
     </insert>
 
     <delete id="deleteUser" parameterType="int">
-        DELETE FROM USERINFO WHERE ID=#{id}
+        DELETE FROM USER_MANAGEMENT WHERE USER_ID=#{id}
     </delete>
     <update id="updateUser" parameterType="UserInfo">
-        UPDATE USERINFO
+        UPDATE USER_MANAGEMENT
         <set>
-            <if test="name!=null and name!=''">NAME =#{name},</if>
-            <if test="age!=null and age!=''">AGE =#{age},</if>
-            <if test="loginName!=null and loginName!=''">LOGINNAME =#{loginName},</if>
-            <if test="password!=null and password!=''">PASSWORD =#{password}</if>
+            <if test="netname!=null and netname!=''">USER_NETNAME =#{netname},</if>
+            <if test="name!=null and name!=''">USER_NAME =#{name},</if>
+            <if test="password!=null and password!=''">USER_PASSWORD =#{password}</if>
         </set>
         where ID=#{id}
     </update>
 
     <select id="selectUserById" resultType="UserInfo" parameterType="int">
-        SELECT * FROM USERINFO WHERE id = #{id}
+        SELECT * FROM USER_MANAGEMENT WHERE USER_ID = #{id}
     </select>
 
     <select id="selectAll" resultType="UserInfo">
-        SELECT * FROM USERINFO order by id desc
+        SELECT * FROM USER_MANAGEMENT order by id desc
     </select>
 
-    <select id="selectUserByLoginName" parameterType="java.lang.String" resultType="UserInfo">
-        SELECT * FROM USERINFO WHERE LOGINNAME=#{loginName}
+    <select id="selectUserByName" parameterType="java.lang.String" resultType="UserInfo">
+        SELECT * FROM USER_MANAGEMENT WHERE USER_NAME=#{name}
     </select>
 
     <select id="selectUserByParams" resultType="UserInfo" parameterType="UserInfo">
-        SELECT * FROM USERINFO
+        SELECT * FROM USER_MANAGEMENT
         <where>
+            <if test="netname!=null and netname!=''">and NETNAME=#{netname}</if>
             <if test="name!=null and name!=''">and NAME=#{name}</if>
-            <if test="loginName!=null and loginName!=''">and LOGINNAME=#{loginName}</if>
         </where>
         order by id desc
     </select>
 
     <select id="selectUserCount" resultType="int">
-        select count(*) from USERINFO
+        select count(*) from USER_MANAGEMENT
     </select>
 </mapper>

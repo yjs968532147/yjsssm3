@@ -4,10 +4,10 @@ public class UserInfo {
     private int id;
     private String name;
     private int age;
-    private String loginName;
+    private String netname;
     private String password;
-    private int startRow;
-    private int endRow;
+    private String sex;
+    private String birthday;
 
     public int getId() {
         return id;
@@ -33,12 +33,12 @@ public class UserInfo {
         this.age = age;
     }
 
-    public String getLoginName() {
-        return loginName;
+    public String getNetname() {
+        return netname;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
+    public void setNetname(String netname) {
+        this.netname = netname;
     }
 
     public String getPassword() {
@@ -49,19 +49,19 @@ public class UserInfo {
         this.password = password;
     }
 
-    public int getStartRow() {
-        return startRow;
+    public String getSex() {
+        return sex;
     }
 
-    public void setStartRow(int startRow) {
-        this.startRow = startRow;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public int getEndRow() {
-        return endRow;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setEndRow(int endRow) {
-        this.endRow = endRow;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 }

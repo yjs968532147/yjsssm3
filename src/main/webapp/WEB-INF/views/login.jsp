@@ -36,9 +36,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="login w3layouts agileits">
 			<h2>登 录</h2>
 			<form action="<%=basePath%>user/login" method="post">
-				<input type="text" Name="loginName" placeholder="用户名" >
+				<input type="text" Name="name" placeholder="用户名" >
 				<input type="password" Name="password" placeholder="密码" >
 				<input type="submit" value="登 录">
+				<h3>${msg}</h3>
 			</form>
 			<a href="#">记住密码?</a>
 			<div class="social-icons w3layouts agileits">
@@ -57,31 +58,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<div class="clear"></div>
-		</div><div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
 		<div class="register w3layouts agileits">
 			<h2>注 册</h2>
-			<form action="#" method="post">
-				<input type="text" Name="Name" placeholder="用户名" required="">
-				<input type="text" Name="Email" placeholder="邮箱" required="">
-				<input type="password" Name="Password" placeholder="密码" required="">
-				<input type="text" Name="Phone Number" placeholder="手机号码" required="">
+			<form action="<%=basePath%>user/register" method="post">
+				<input type="text" Name="name" placeholder="用户名" >
+				<input type="password" Name="password" placeholder="密码" >
+				<input type="text" Name="netname" placeholder="昵称" >
+				<input type="text" Name="sex" placeholder="性别" >
+				<input type="date" Name="birthday" placeholder="生日" >
+				<input type="submit" value="注册">
+				<h3>${msg2}</h3>
 			</form>
-			<div class="send-button w3layouts agileits">
-				<form>
-					<input type="submit" value="免费注册">
-				</form>
-			</div>
 			<div class="clear"></div>
 		</div>
 
 		<div class="clear"></div>
-
 	</div>
-
-	<div class="footer w3layouts agileits">
-		<p>Copyright &copy; More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
 	</div>
-
 </body>
 <!-- //Body -->
 

@@ -34,8 +34,8 @@ public class UserInfoServiceImpl implements UserInfoService {
         return userInfoDao.selectAll();
     }
 
-    public UserInfo selectUserByLoginName(String loginName) {
-        return userInfoDao.selectUserByLoginName(loginName);
+    public UserInfo selectUserByName(String name) {
+        return userInfoDao.selectUserByName(name);
     }
 
     public List<UserInfo> selectUserByParams(UserInfo userInfo) {

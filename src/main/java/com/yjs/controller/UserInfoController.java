@@ -24,7 +24,7 @@ public class UserInfoController {
     public String login(UserInfo userInfo, Model model){
         String msg="";
         //根据登入账号判断该用户是否存在
-        UserInfo user = userInfoService.selectUserByLoginName(userInfo.getLoginName());
+        UserInfo user = userInfoService.selectUserByName(userInfo.getName());
         if(user==null){
             msg="该用户不存在！";
         }else{
@@ -37,6 +37,26 @@ public class UserInfoController {
             }
         }
         model.addAttribute("msg",msg);
+        return "/login";
+    }
+    @RequestMapping("/register")
+    public String register(UserInfo userInfo, Model model){
+        String msg2="";
+        //根据登入账号判断该用户是否存在
+        UserInfo user = userInfoService.selectUserByName(userInfo.getName());
+        if(user!=null){
+            msg2="该用户已存在！";
+        }else{
+            UserInfo users=new UserInfo();
+            users.setName(userInfo.getName());
+            users.setPassword(userInfo.getPassword());
+            users.setNetname(userInfo.getNetname());
+            users.setSex(userInfo.getSex());
+            users.setBirthday(userInfo.getBirthday());
+            userInfoService.insertUser(users);
+            return "/index";
+        }
+        model.addAttribute("msg2",msg2);
         return "/login";
     }
 

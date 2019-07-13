@@ -39,7 +39,7 @@ public interface UserInfoDao {
      * @param
      * @return
      */
-    UserInfo selectUserByLoginName(String loginName);
+    UserInfo selectUserByName(String name);
 
     /**
      * 根据查询条件获取用户
